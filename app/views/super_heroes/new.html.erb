@@ -1,0 +1,14 @@
+<h2>Create Employee</h2>
+
+<%= form_tag "/superheroes" do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+
+  <%= label_tag :power %>
+  <%= text_field_tag :power %>
+
+  <%= label_tag :descriptor %>
+  <%= text_field_tag :descriptor %>
+
+  <%= submit_tag "Create Super Hero" %>
+<% end %> 
