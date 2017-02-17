@@ -20,8 +20,8 @@ class SuperHeroesController < ApplicationController
   end 
 
   def update 
-    @super_hero = Unirest.patch("#{ENV['DOMAIN']}/superheroes.json", :headers => {"Accept"=> "application/json"}, :parameters => {:name => params[:name], :power => params[:power], :descriptor => params[:descriptor]}).body
-    redirect_to "/superheroes/#{@superhero['id']}"
+    @super_hero = Unirest.patch("#{ENV['DOMAIN']}/superheroes/#{params[:id]}.json", :headers => {"Accept"=> "application/json"}, :parameters => {:name => params[:name], :power => params[:power], :descriptor => params[:descriptor]}).body
+    redirect_to "/superheroes/#{@super_hero['id']}"
   end 
 
   def destroy 

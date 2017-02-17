@@ -3,5 +3,5 @@
 <h3> Powers : <%=@super_hero["power"] %></h3>
 <h3> Descriptor: <%=@super_hero["descriptor"]%></h3>
 <h3> Id: <%=@super_hero["id"]%></h3>
-
+<%= link_to "Edit Super Hero", "/superheroes/#{@super_hero['id']}/edit" %>.
 <%= link_to "Delete Super Hero", "/superheroes/#{@super_hero['id']}", method: :delete %>
