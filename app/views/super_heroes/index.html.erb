@@ -1,5 +1,14 @@
-<% @super_heroes.each do |super_hero|%>
-  <%= super_hero["name"]%>
-  <%= super_hero["power"]%>
-  <%= super_hero["descriptor"]%>
-<%end%>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Power</td>
+    <td>Descriptor</td>
+  </tr>
+  <% @super_heroes.each do |super_hero|%>
+    <tr>
+      <td><%= super_hero["name"]%></td>
+      <td><%= super_hero["power"]%></td>
+      <td><%= super_hero["descriptor"]%></td>
+    </tr>
+  <%end%>
+</table>
