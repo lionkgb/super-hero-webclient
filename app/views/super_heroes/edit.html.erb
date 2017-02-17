@@ -1,0 +1,15 @@
+<h1>Update Super Hero</h1>
+ 
+<%= form_tag "/superheroes/#{@superhero['id']}", method: :patch do %>
+
+ <%= label_tag :name %>
+ <%= text_field_tag :name, @superhero['name'] %>
+
+ <%= label_tag :power %>
+ <%= text_field_tag :power, @superhero['power'] %>
+
+ <%= label_tag :descriptor %>
+ <%= text_field_tag :descriptor, @superhero['descriptor'] %>
+
+ <%= submit_tag "Update Super Hero" %>
+<% end %> 
