@@ -1,7 +1,9 @@
 <h1> Super Hero </h1>
-<h3> Super hero : <%=@super_hero["name"] %> </h3>
-<h3> Powers : <%=@super_hero["power"] %></h3>
-<h3> Descriptor: <%=@super_hero["descriptor"]%></h3>
-<h3> Id: <%=@super_hero["id"]%></h3>
+<ul>
+  <li> Super hero : <%=@super_hero["name"] %> </li>
+  <li> Powers : <%=@super_hero["power"] %></li>
+  <li> Descriptor: <%=@super_hero["descriptor"]%></li>
+  <li> Id: <%=@super_hero["id"]%></li>
+</ul>
 <%= link_to "Edit Super Hero", "/superheroes/#{@super_hero['id']}/edit" %>.
 <%= link_to "Delete Super Hero", "/superheroes/#{@super_hero['id']}", method: :delete %>

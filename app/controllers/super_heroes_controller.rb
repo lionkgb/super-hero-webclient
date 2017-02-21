@@ -4,7 +4,8 @@ class SuperHeroesController < ApplicationController
   end 
 
   def show 
-    @super_hero = Unirest.get("#{ENV['DOMAIN']}/superheroes/#{params[:id]}.json").body
+    super_hero_hash = Unirest.get("#{ENV['DOMAIN']}/superheroes/#{params[:id]}.json").body
+    @super_hero = SuperHero.new(super_hero_hash)
   end 
 
   def new 
