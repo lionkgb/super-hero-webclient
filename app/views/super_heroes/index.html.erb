@@ -4,11 +4,11 @@
     <th>Power</th>
     <th>Descriptor</th>
   </tr>
-  <% @super_heroes.each do |super_hero_hash|%>
+  <% @super_heroes.each do |super_hero|%>
     <tr>
-      <td><%= super_hero_hash["name"]%></td>
-      <td><%= super_hero_hash["power"]%></td>
-      <td><%= super_hero_hash["descriptor"]%></td>
+      <td><%= super_hero.name%></td>
+      <td><%= super_hero.power%></td>
+      <td><%= super_hero.descriptor%></td>
     </tr>
   <%end%>
 </table>

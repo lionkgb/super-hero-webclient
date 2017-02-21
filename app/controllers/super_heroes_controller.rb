@@ -1,34 +1,33 @@
 class SuperHeroesController < ApplicationController
   def index 
-    @super_heroes = Unirest.get("#{ENV['DOMAIN']}/superheroes.json").body
-  end 
+    @super_heroes = SuperHero.all
+  end
 
   def show 
-    super_hero_hash = Unirest.get("#{ENV['DOMAIN']}/superheroes/#{params[:id]}.json").body
-    @super_hero = SuperHero.new(super_hero_hash)
+    @super_hero = SuperHero.find(params[:id])
   end 
 
   def new 
   end 
 
   def create 
-    @super_hero = Unirest.post("#{ENV['DOMAIN']}/superheroes.json", :headers => {"Accept"=> "application/json"}, :parameters => {:name => params[:name], :power => params[:power], :descriptor => params[:descriptor]}).body
-  render :show
+    @super_hero = SuperHero.create({name: params[:name], power:params[:power], descriptor: params[:descriptor]})
+    redirect_to "/superheroes/#{@super_hero.id}"
   end
 
   def edit 
-    @super_hero = Unirest.get("#{ENV['DOMAIN']}/superheroes/#{params[:id]}.json").body
+    @super_hero = SuperHero.find(params[:id])
   end 
 
   def update 
-    @super_hero = Unirest.patch("#{ENV['DOMAIN']}/superheroes/#{params[:id]}.json", :headers => {"Accept"=> "application/json"}, :parameters => {:name => params[:name], :power => params[:power], :descriptor => params[:descriptor]}).body
-    redirect_to "/superheroes/#{@super_hero['id']}"
+    @super_hero = SuperHero.find(params[:id])
+    @super_hero.update({id: params[:id], power: params[:power], descriptor: params[:descriptor]})
+    redirect_to "/superheroes/#{@super_hero.id}"
   end 
 
   def destroy 
-    Unirest.delete("#{ENV['DOMAIN']}/superheroes/#{params[:id]}.json").body
+    @super_hero = SuperHero.find(params[:id])
+    @super_hero.destroy
     redirect_to "/"
-  end
-
-  
+  end  
 end
