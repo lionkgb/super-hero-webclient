@@ -6,4 +6,4 @@
   <li> Id: <%=@super_hero.id%></li>
 </ul>
 <%= link_to "Edit Super Hero", "/superheroes/#{@super_hero.id}/edit" %>.
-<%= link_to "Delete Super Hero", "/superheroes/#{@super_hero.id}", method: :delete %>
+<%= link_to "Delete Super Hero", "/superheroes/#{@super_hero.id}", :method => :delete %>

@@ -23,7 +23,7 @@ class SuperHero
 
 
   def destroy
-    @super_hero = Unirest.delete("#{ENV['DOMAIN']}/superheroes/#{id}.json").body
+    @super_hero = Unirest.delete("#{ENV['DOMAIN']}/superheroes/#{id}.json", :headers => {"Accept"=>"application/json", "Authorization"=> "Token token=#{ENV['API_KEY']}", "X-User-Email"=> ENV['API_EMAIL']}).body
   end 
 
   def self.create(params)
